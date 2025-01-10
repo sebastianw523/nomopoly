@@ -1,0 +1,834 @@
+[gd_scene load_steps=65 format=2]
+
+[ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
+[ext_resource path="res://Assets/board.png" type="Texture" id=2]
+[ext_resource path="res://Scripts/singleDice.gd" type="Script" id=3]
+[ext_resource path="res://Scripts/TurnQueue.gd" type="Script" id=4]
+[ext_resource path="res://Scripts/dice.gd" type="Script" id=5]
+[ext_resource path="res://Scenes/player_control.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Assets/DiceSides/Side6.png" type="Texture" id=7]
+[ext_resource path="res://Scripts/FieldScripts/10_GefBesucher.gd" type="Script" id=8]
+[ext_resource path="res://Scripts/player_control.gd" type="Script" id=9]
+[ext_resource path="res://Scripts/FieldScripts/1_Badstrasse.gd" type="Script" id=10]
+[ext_resource path="res://Assets/icon.png" type="Texture" id=11]
+[ext_resource path="res://Scripts/FieldScripts/0_los.gd" type="Script" id=12]
+[ext_resource path="res://Scripts/FieldScripts/2_GemFeld.gd" type="Script" id=13]
+[ext_resource path="res://Scripts/FieldScripts/4_EinkSteuer.gd" type="Script" id=14]
+[ext_resource path="res://Scripts/FieldScripts/6_Chausseestrasse.gd" type="Script" id=15]
+[ext_resource path="res://Scripts/FieldScripts/7_Ereignisfeld.gd" type="Script" id=16]
+[ext_resource path="res://Scripts/FieldScripts/8_Elisenstrasse.gd" type="Script" id=17]
+[ext_resource path="res://Scripts/FieldScripts/9_Poststrasse.gd" type="Script" id=18]
+[ext_resource path="res://Scripts/FieldScripts/22_Ereignisfeld.gd" type="Script" id=19]
+[ext_resource path="res://Scripts/FieldScripts/3_Turmstrasse.gd" type="Script" id=20]
+[ext_resource path="res://Scripts/FieldScripts/5_Südbahnhof.gd" type="Script" id=21]
+[ext_resource path="res://Scripts/FieldScripts/28_Wasserwerk.gd" type="Script" id=22]
+[ext_resource path="res://Scripts/FieldScripts/37_Parkstrasse.gd" type="Script" id=23]
+[ext_resource path="res://Scripts/FieldScripts/39_Schlossallee.gd" type="Script" id=24]
+[ext_resource path="res://Scripts/FieldScripts/38_Zusatzsteuer.gd" type="Script" id=25]
+[ext_resource path="res://Scripts/FieldScripts/32_Hauptstrasse.gd" type="Script" id=26]
+[ext_resource path="res://Scripts/FieldScripts/30_GehInsGefängnis.gd" type="Script" id=27]
+[ext_resource path="res://Scripts/FieldScripts/34_Bahnhofstrasse.gd" type="Script" id=28]
+[ext_resource path="res://Scripts/FieldScripts/31_Rathausplatz.gd" type="Script" id=29]
+[ext_resource path="res://Scripts/FieldScripts/33_GemFeld.gd" type="Script" id=30]
+[ext_resource path="res://Scripts/FieldScripts/35_Hauptbahnhof.gd" type="Script" id=31]
+[ext_resource path="res://Scripts/FieldScripts/29_Goethestrasse.gd" type="Script" id=32]
+[ext_resource path="res://Scripts/FieldScripts/36_Ereignisfeld.gd" type="Script" id=33]
+[ext_resource path="res://Scripts/FieldScripts/23_Museumstrasse.gd" type="Script" id=34]
+[ext_resource path="res://Scripts/FieldScripts/27_Schillerstrasse.gd" type="Script" id=35]
+[ext_resource path="res://Scripts/FieldScripts/15_Westbahnhof.gd" type="Script" id=36]
+[ext_resource path="res://Scripts/FieldScripts/18_WienerStrasse.gd" type="Script" id=37]
+[ext_resource path="res://Scripts/FieldScripts/17_GemFeld.gd" type="Script" id=38]
+[ext_resource path="res://Scripts/FieldScripts/20_Freiparken.gd" type="Script" id=39]
+[ext_resource path="res://Scripts/FieldScripts/19_BerlinerStrasse.gd" type="Script" id=40]
+[ext_resource path="res://Scripts/FieldScripts/24_Opernplatz.gd" type="Script" id=41]
+[ext_resource path="res://Scripts/FieldScripts/13_Hafenstrasse.gd" type="Script" id=42]
+[ext_resource path="res://Scripts/FieldScripts/16_MünchStrasse.gd" type="Script" id=43]
+[ext_resource path="res://Scripts/FieldScripts/25_Nordbahnhof.gd" type="Script" id=44]
+[ext_resource path="res://Scripts/FieldScripts/21_Theaterstrasse.gd" type="Script" id=45]
+[ext_resource path="res://Scripts/FieldScripts/12_ElekWerk.gd" type="Script" id=46]
+[ext_resource path="res://Scripts/FieldScripts/26_Lessingstrasse.gd" type="Script" id=47]
+[ext_resource path="res://Scripts/FieldScripts/14_NeueStrasse.gd" type="Script" id=48]
+[ext_resource path="res://Scripts/FieldScripts/11_Seestrasse.gd" type="Script" id=49]
+[ext_resource path="res://Scripts/FieldScripts/_Gefängnis.gd" type="Script" id=50]
+[ext_resource path="res://Fonts/Comfortaa/static/Comfortaa-Regular.ttf" type="DynamicFontData" id=51]
+[ext_resource path="res://Assets/Buttons/yes/yes.png" type="Texture" id=52]
+[ext_resource path="res://Assets/Buttons/yes/yes-pressed.png" type="Texture" id=53]
+[ext_resource path="res://Assets/Buttons/no/no.png" type="Texture" id=54]
+[ext_resource path="res://Assets/Buttons/no/no-pressed.png" type="Texture" id=55]
+[ext_resource path="res://Assets/Buttons/text-button/ok-button-pressed.png" type="Texture" id=56]
+[ext_resource path="res://Assets/Buttons/text-button/ok-button.png" type="Texture" id=57]
+[ext_resource path="res://Scripts/Interaction.gd" type="Script" id=58]
+[ext_resource path="res://Scripts/OutputLine.gd" type="Script" id=59]
+[ext_resource path="res://Scripts/PlayerInfos.gd" type="Script" id=60]
+
+[sub_resource type="GDScript" id=2]
+script/source = "extends Node2D
+"
+
+[sub_resource type="RectangleShape2D" id=1]
+
+[sub_resource type="DynamicFont" id=5]
+size = 35
+font_data = ExtResource( 51 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 30
+font_data = ExtResource( 51 )
+
+[node name="Node2D" type="Node2D"]
+script = SubResource( 2 )
+
+[node name="map" type="Sprite" parent="."]
+position = Vector2( 540, 540 )
+scale = Vector2( 0.5625, 0.5625 )
+texture = ExtResource( 2 )
+
+[node name="Jail" type="Position2D" parent="map"]
+position = Vector2( -750.222, 748.444 )
+scale = Vector2( 0.833778, 0.833778 )
+script = ExtResource( 50 )
+__meta__ = {
+"_gizmo_extents_": 82.0
+}
+
+[node name="Waypoints" type="Node" parent="map"]
+
+[node name="0_los" type="Position2D" parent="map/Waypoints"]
+position = Vector2( 983, 983 )
+scale = Vector2( 0.469, 0.469 )
+script = ExtResource( 12 )
+__meta__ = {
+"_gizmo_extents_": 127.6
+}
+
+[node name="1_Badstrasse" type="Position2D" parent="map/Waypoints"]
+position = Vector2( 877.466, 999.38 )
+scale = Vector2( 0.469, 0.469 )
+script = ExtResource( 10 )
+__meta__ = {
+"_gizmo_extents_": 82.0
+}
+
+[node name="ColorRect" type="ColorRect" parent="map/Waypoints/1_Badstrasse"]
+visible = false
+margin_left = -84.0
+margin_top = 42.0
+margin_right = 84.0
+margin_bottom = 95.0
+color = Color( 0, 1, 0.356863, 1 )
+
+[node name="2_GemFeld" type="Position2D" parent="map/Waypoints"]
+position = Vector2( 792, 999 )
+scale = Vector2( 0.469, 0.469 )
+script = ExtResource( 13 )
+__meta__ = {
+"_gizmo_extents_": 82.0
+}
+
+[node name="3_Turmstrasse" type="Position2D" parent="map/Waypoints"]
+position = Vector2( 708, 999 )
+scale = Vector2( 0.469, 0.469 )
+script = ExtResource( 20 )
+__meta__ = {
+"_gizmo_extents_": 82.0
+}
+
+[node name="ColorRect" type="ColorRect" parent="map/Waypoints/3_Turmstrasse"]
+visible = false
+margin_left = -84.0
+margin_top = 42.0
+margin_right = 85.0
+margin_bottom = 96.0
+color = Color( 0, 1, 0.356863, 1 )
+
+[node name="4_EinkSteuer" type="Position2D" parent="map/Waypoints"]
+position = Vector2( 624, 999 )
+scale = Vector2( 0.469, 0.469 )
+script = ExtResource( 14 )
+__meta__ = {
+"_gizmo_extents_": 82.0
+}
+
+[node name="5_Südbahnhof" type="Position2D" parent="map/Waypoints"]
+position = Vector2( 540, 999 )
+scale = Vector2( 0.469, 0.469 )
+script = ExtResource( 21 )
+__meta__ = {
+"_gizmo_extents_": 82.0
+}
+
+[node name="ColorRect" type="ColorRect" parent="map/Waypoints/5_Südbahnhof"]
+visible = false
+margin_left = -83.0
+margin_top = 42.0
+margin_right = 83.0
+margin_bottom = 96.0
+color = Color( 0, 1, 0.356863, 1 )
+
+[node name="6_Chausseestrasse" type="Position2D" parent="map/Waypoints"]
+position = Vector2( 456, 999 )
+scale = Vector2( 0.469, 0.469 )
+script = ExtResource( 15 )
+__meta__ = {
+"_gizmo_extents_": 82.0
+}
+
+[node name="ColorRect" type="ColorRect" parent="map/Waypoints/6_Chausseestrasse"]
+visible = false
+margin_left = -84.0
+margin_top = 42.0
+margin_right = 84.0
+margin_bottom = 95.0
+color = Color( 0, 1, 0.356863, 1 )
+
+[node name="7_Ereignisfeld" type="Position2D" parent="map/Waypoints"]
+position = Vector2( 371, 999 )
+scale = Vector2( 0.469, 0.469 )
+script = ExtResource( 16 )
+__meta__ = {
+"_gizmo_extents_": 82.0
+}
+
+[node name="8_Elisenstrasse" type="Position2D" parent="map/Waypoints"]
+position = Vector2( 287, 999 )
+scale = Vector2( 0.469, 0.469 )
+script = ExtResource( 17 )
+__meta__ = {
+"_gizmo_extents_": 82.0
+}
+
+[node name="ColorRect" type="ColorRect" parent="map/Waypoints/8_Elisenstrasse"]
+visible = false
+margin_left = -85.0
+margin_top = 42.0
+margin_right = 85.0
+margin_bottom = 96.0
+color = Color( 0, 1, 0.356863, 1 )
+
+[node name="9_Poststrasse" type="Position2D" parent="map/Waypoints"]
+position = Vector2( 202, 999 )
+scale = Vector2( 0.469, 0.469 )
+script = ExtResource( 18 )
+__meta__ = {
+"_gizmo_extents_": 82.0
+}
+
+[node name="ColorRect" type="ColorRect" parent="map/Waypoints/9_Poststrasse"]
+visible = false
+margin_left = -83.0
+margin_top = 42.0
+margin_right = 85.0
+margin_bottom = 96.0
+color = Color( 0, 1, 0.356863, 1 )
+
+[node name="10_GefBesucher" type="Position2D" parent="map/Waypoints"]
+position = Vector2( 58, 1023 )
+scale = Vector2( 0.469, 0.469 )
+script = ExtResource( 8 )
+__meta__ = {
+"_gizmo_extents_": 82.0
+}
+
+[node name="11_Seestrasse" type="Position2D" parent="map/Waypoints"]
+position = Vector2( 80, 878 )
+scale = Vector2( 0.469, 0.469 )
+script = ExtResource( 49 )
+__meta__ = {
+"_gizmo_extents_": 82.0
+}
+
+[node name="ColorRect" type="ColorRect" parent="map/Waypoints/11_Seestrasse"]
+visible = false
+margin_left = -94.0
+margin_top = -85.0
+margin_right = -41.0
+margin_bottom = 83.0
+color = Color( 0, 1, 0.356863, 1 )
+
+[node name="12_ElekWerk" type="Position2D" parent="map/Waypoints"]
+position = Vector2( 80, 793 )
+scale = Vector2( 0.469, 0.469 )
+script = ExtResource( 46 )
+__meta__ = {
+"_gizmo_extents_": 82.0
+}
+
+[node name="ColorRect" type="ColorRect" parent="map/Waypoints/12_ElekWerk"]
+visible = false
+margin_left = -94.0
+margin_top = -85.0
+margin_right = -41.0
+margin_bottom = 83.0
+color = Color( 0, 1, 0.356863, 1 )
+
+[node name="13_Hafenstrasse" type="Position2D" parent="map/Waypoints"]
+position = Vector2( 80, 709 )
+scale = Vector2( 0.469, 0.469 )
+script = ExtResource( 42 )
+__meta__ = {
+"_gizmo_extents_": 82.0
+}
+
+[node name="ColorRect" type="ColorRect" parent="map/Waypoints/13_Hafenstrasse"]
+visible = false
+margin_left = -94.0
+margin_top = -85.0
+margin_right = -41.0
+margin_bottom = 83.0
+color = Color( 0, 1, 0.356863, 1 )
+
+[node name="14_NeueStrasse" type="Position2D" parent="map/Waypoints"]
+position = Vector2( 80, 624 )
+scale = Vector2( 0.469, 0.469 )
+script = ExtResource( 48 )
+__meta__ = {
+"_gizmo_extents_": 82.0
+}
+
+[node name="ColorRect" type="ColorRect" parent="map/Waypoints/14_NeueStrasse"]
+visible = false
+margin_left = -94.0
+margin_top = -85.0
+margin_right = -41.0
+margin_bottom = 85.0
+color = Color( 0, 1, 0.356863, 1 )
+
+[node name="15_Westbahnhof" type="Position2D" parent="map/Waypoints"]
+position = Vector2( 80, 539 )
+scale = Vector2( 0.469, 0.469 )
+script = ExtResource( 36 )
+__meta__ = {
+"_gizmo_extents_": 82.0
+}
+
+[node name="ColorRect" type="ColorRect" parent="map/Waypoints/15_Westbahnhof"]
+visible = false
+margin_left = -94.0
+margin_top = -83.0
+margin_right = -41.0
+margin_bottom = 85.0
+color = Color( 0, 1, 0.356863, 1 )
+
+[node name="16_MünchStrasse" type="Position2D" parent="map/Waypoints"]
+position = Vector2( 80, 455 )
+scale = Vector2( 0.469, 0.469 )
+script = ExtResource( 43 )
+__meta__ = {
+"_gizmo_extents_": 82.0
+}
+
+[node name="ColorRect" type="ColorRect" parent="map/Waypoints/16_MünchStrasse"]
+visible = false
+margin_left = -94.0
+margin_top = -85.0
+margin_right = -41.0
+margin_bottom = 85.0
+color = Color( 0, 1, 0.356863, 1 )
+
+[node name="17_GemFeld" type="Position2D" parent="map/Waypoints"]
+position = Vector2( 80, 370 )
+scale = Vector2( 0.469, 0.469 )
+script = ExtResource( 38 )
+__meta__ = {
+"_gizmo_extents_": 82.0
+}
+
+[node name="18_WienerStrasse" type="Position2D" parent="map/Waypoints"]
+position = Vector2( 80, 286 )
+scale = Vector2( 0.469, 0.469 )
+script = ExtResource( 37 )
+__meta__ = {
+"_gizmo_extents_": 82.0
+}
+
+[node name="ColorRect" type="ColorRect" parent="map/Waypoints/18_WienerStrasse"]
+visible = false
+margin_left = -94.0
+margin_top = -85.0
+margin_right = -41.0
+margin_bottom = 85.0
+color = Color( 0, 1, 0.356863, 1 )
+
+[node name="19_BerlinerStrasse" type="Position2D" parent="map/Waypoints"]
+position = Vector2( 80, 201 )
+scale = Vector2( 0.469, 0.469 )
+script = ExtResource( 40 )
+__meta__ = {
+"_gizmo_extents_": 82.0
+}
+
+[node name="ColorRect" type="ColorRect" parent="map/Waypoints/19_BerlinerStrasse"]
+visible = false
+margin_left = -93.8166
+margin_top = -83.1556
+margin_right = -40.8166
+margin_bottom = 84.8444
+color = Color( 0, 1, 0.356863, 1 )
+
+[node name="20_Freiparken" type="Position2D" parent="map/Waypoints"]
+position = Vector2( 96, 95 )
+scale = Vector2( 0.469, 0.469 )
+script = ExtResource( 39 )
+__meta__ = {
+"_gizmo_extents_": 124.0
+}
+
+[node name="21_Theaterstrasse" type="Position2D" parent="map/Waypoints"]
+position = Vector2( 202, 81 )
+scale = Vector2( 0.469, 0.469 )
+script = ExtResource( 45 )
+__meta__ = {
+"_gizmo_extents_": 82.0
+}
+
+[node name="ColorRect" type="ColorRect" parent="map/Waypoints/21_Theaterstrasse"]
+visible = false
+margin_left = -83.1556
+margin_top = -98.081
+margin_right = 84.8444
+margin_bottom = -45.081
+color = Color( 0, 1, 0.356863, 1 )
+
+[node name="22_Ereignisfeld" type="Position2D" parent="map/Waypoints"]
+position = Vector2( 287, 81 )
+scale = Vector2( 0.469, 0.469 )
+script = ExtResource( 19 )
+__meta__ = {
+"_gizmo_extents_": 82.0
+}
+
+[node name="23_Museumstrasse" type="Position2D" parent="map/Waypoints"]
+position = Vector2( 371, 81 )
+scale = Vector2( 0.469, 0.469 )
+script = ExtResource( 34 )
+__meta__ = {
+"_gizmo_extents_": 82.0
+}
+
+[node name="ColorRect" type="ColorRect" parent="map/Waypoints/23_Museumstrasse"]
+visible = false
+margin_left = -83.0
+margin_top = -98.0
+margin_right = 85.0
+margin_bottom = -45.0
+color = Color( 0, 1, 0.356863, 1 )
+
+[node name="24_Opernplatz" type="Position2D" parent="map/Waypoints"]
+position = Vector2( 456, 81 )
+scale = Vector2( 0.469, 0.469 )
+script = ExtResource( 41 )
+__meta__ = {
+"_gizmo_extents_": 82.0
+}
+
+[node name="ColorRect" type="ColorRect" parent="map/Waypoints/24_Opernplatz"]
+visible = false
+margin_left = -83.1556
+margin_top = -98.081
+margin_right = 84.8444
+margin_bottom = -45.081
+color = Color( 0, 1, 0.356863, 1 )
+
+[node name="25_Nordbahnhof" type="Position2D" parent="map/Waypoints"]
+position = Vector2( 540, 81 )
+scale = Vector2( 0.469, 0.469 )
+script = ExtResource( 44 )
+__meta__ = {
+"_gizmo_extents_": 82.0
+}
+
+[node name="ColorRect" type="ColorRect" parent="map/Waypoints/25_Nordbahnhof"]
+visible = false
+margin_left = -83.0
+margin_top = -98.0
+margin_right = 83.0
+margin_bottom = -45.0
+color = Color( 0, 1, 0.356863, 1 )
+
+[node name="26_Lessingstrasse" type="Position2D" parent="map/Waypoints"]
+position = Vector2( 624, 81 )
+scale = Vector2( 0.469, 0.469 )
+script = ExtResource( 47 )
+__meta__ = {
+"_gizmo_extents_": 82.0
+}
+
+[node name="ColorRect" type="ColorRect" parent="map/Waypoints/26_Lessingstrasse"]
+visible = false
+margin_left = -85.2878
+margin_top = -98.081
+margin_right = 82.7122
+margin_bottom = -45.081
+color = Color( 0, 1, 0.356863, 1 )
+
+[node name="27_Schillerstrasse" type="Position2D" parent="map/Waypoints"]
+position = Vector2( 708, 81 )
+scale = Vector2( 0.469, 0.469 )
+script = ExtResource( 35 )
+__meta__ = {
+"_gizmo_extents_": 82.0
+}
+
+[node name="ColorRect" type="ColorRect" parent="map/Waypoints/27_Schillerstrasse"]
+visible = false
+margin_left = -83.0
+margin_top = -98.0
+margin_right = 85.0
+margin_bottom = -45.0
+color = Color( 0, 1, 0.356863, 1 )
+
+[node name="28_Wasserwerk" type="Position2D" parent="map/Waypoints"]
+position = Vector2( 792, 81 )
+scale = Vector2( 0.469, 0.469 )
+script = ExtResource( 22 )
+__meta__ = {
+"_gizmo_extents_": 82.0
+}
+
+[node name="ColorRect" type="ColorRect" parent="map/Waypoints/28_Wasserwerk"]
+visible = false
+margin_left = -83.0
+margin_top = -98.0
+margin_right = 87.0
+margin_bottom = -45.0
+color = Color( 0, 1, 0.356863, 1 )
+
+[node name="29_Goethestrasse" type="Position2D" parent="map/Waypoints"]
+position = Vector2( 877, 81 )
+scale = Vector2( 0.469, 0.469 )
+script = ExtResource( 32 )
+__meta__ = {
+"_gizmo_extents_": 82.0
+}
+
+[node name="ColorRect" type="ColorRect" parent="map/Waypoints/29_Goethestrasse"]
+visible = false
+margin_left = -83.1556
+margin_top = -98.081
+margin_right = 84.8444
+margin_bottom = -45.081
+color = Color( 0, 1, 0.356863, 1 )
+
+[node name="30_GehInsGefängnis" type="Position2D" parent="map/Waypoints"]
+position = Vector2( 983, 96 )
+scale = Vector2( 0.469, 0.469 )
+script = ExtResource( 27 )
+__meta__ = {
+"_gizmo_extents_": 124.0
+}
+
+[node name="31_Rathausplatz" type="Position2D" parent="map/Waypoints"]
+position = Vector2( 1000, 202 )
+scale = Vector2( 0.469, 0.469 )
+script = ExtResource( 29 )
+__meta__ = {
+"_gizmo_extents_": 82.0
+}
+
+[node name="ColorRect" type="ColorRect" parent="map/Waypoints/31_Rathausplatz"]
+visible = false
+margin_left = 40.5117
+margin_top = -85.2878
+margin_right = 93.5117
+margin_bottom = 82.7122
+color = Color( 0, 1, 0.356863, 1 )
+
+[node name="32_Hauptstrasse" type="Position2D" parent="map/Waypoints"]
+position = Vector2( 1000, 286 )
+scale = Vector2( 0.469, 0.469 )
+script = ExtResource( 26 )
+__meta__ = {
+"_gizmo_extents_": 82.0
+}
+
+[node name="ColorRect" type="ColorRect" parent="map/Waypoints/32_Hauptstrasse"]
+visible = false
+margin_left = 40.5117
+margin_top = -85.2878
+margin_right = 93.5117
+margin_bottom = 84.7122
+color = Color( 0, 1, 0.356863, 1 )
+
+[node name="33_GemFeld" type="Position2D" parent="map/Waypoints"]
+position = Vector2( 1000, 371 )
+scale = Vector2( 0.469, 0.469 )
+script = ExtResource( 30 )
+__meta__ = {
+"_gizmo_extents_": 82.0
+}
+
+[node name="34_Bahnhofstrasse" type="Position2D" parent="map/Waypoints"]
+position = Vector2( 1000, 455 )
+scale = Vector2( 0.469, 0.469 )
+script = ExtResource( 28 )
+__meta__ = {
+"_gizmo_extents_": 82.0
+}
+
+[node name="ColorRect" type="ColorRect" parent="map/Waypoints/34_Bahnhofstrasse"]
+visible = false
+margin_left = 41.0
+margin_top = -85.0
+margin_right = 94.0
+margin_bottom = 83.0
+color = Color( 0, 1, 0.356863, 1 )
+
+[node name="35_Hauptbahnhof" type="Position2D" parent="map/Waypoints"]
+position = Vector2( 999, 539 )
+scale = Vector2( 0.469, 0.469 )
+script = ExtResource( 31 )
+__meta__ = {
+"_gizmo_extents_": 82.0
+}
+
+[node name="ColorRect" type="ColorRect" parent="map/Waypoints/35_Hauptbahnhof"]
+visible = false
+margin_left = 43.0
+margin_top = -83.0
+margin_right = 96.0
+margin_bottom = 85.0
+color = Color( 0, 1, 0.356863, 1 )
+
+[node name="36_Ereignisfeld" type="Position2D" parent="map/Waypoints"]
+position = Vector2( 999, 624 )
+scale = Vector2( 0.469, 0.469 )
+script = ExtResource( 33 )
+__meta__ = {
+"_gizmo_extents_": 82.0
+}
+
+[node name="37_Parkstrasse" type="Position2D" parent="map/Waypoints"]
+position = Vector2( 999, 708 )
+scale = Vector2( 0.469, 0.469 )
+script = ExtResource( 23 )
+__meta__ = {
+"_gizmo_extents_": 82.0
+}
+
+[node name="ColorRect" type="ColorRect" parent="map/Waypoints/37_Parkstrasse"]
+visible = false
+margin_left = 42.644
+margin_top = -83.1556
+margin_right = 95.644
+margin_bottom = 84.8444
+color = Color( 0, 1, 0.356863, 1 )
+
+[node name="38_Zusatzsteuer" type="Position2D" parent="map/Waypoints"]
+position = Vector2( 999, 793 )
+scale = Vector2( 0.469, 0.469 )
+script = ExtResource( 25 )
+__meta__ = {
+"_gizmo_extents_": 82.0
+}
+
+[node name="39_Schlossallee" type="Position2D" parent="map/Waypoints"]
+position = Vector2( 999, 877 )
+scale = Vector2( 0.469, 0.469 )
+script = ExtResource( 24 )
+__meta__ = {
+"_gizmo_extents_": 82.0
+}
+
+[node name="ColorRect" type="ColorRect" parent="map/Waypoints/39_Schlossallee"]
+visible = false
+margin_left = 42.644
+margin_top = -83.1556
+margin_right = 95.644
+margin_bottom = 84.8444
+color = Color( 0, 1, 0.356863, 1 )
+
+[node name="dice" type="Control" parent="map"]
+margin_left = -142.222
+margin_top = 12.4445
+margin_right = -142.222
+margin_bottom = 12.4445
+rect_scale = Vector2( 3.49234, 3.49234 )
+script = ExtResource( 5 )
+
+[node name="dice1" type="Sprite" parent="map/dice"]
+scale = Vector2( 0.213181, 0.213181 )
+texture = ExtResource( 7 )
+script = ExtResource( 3 )
+
+[node name="dice2" type="Sprite" parent="map/dice"]
+position = Vector2( 83.556, 0 )
+scale = Vector2( 0.213181, 0.213181 )
+texture = ExtResource( 7 )
+script = ExtResource( 3 )
+
+[node name="Button" type="Button" parent="map/dice"]
+self_modulate = Color( 1, 1, 1, 0 )
+margin_left = -37.0
+margin_top = -37.0
+margin_right = -7.0
+margin_bottom = 15.0
+rect_scale = Vector2( 5.34625, 1.43974 )
+
+[node name="TurnQueue" type="Node" parent="."]
+script = ExtResource( 4 )
+
+[node name="Player1" type="KinematicBody2D" parent="TurnQueue"]
+position = Vector2( 984, 980 )
+script = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TurnQueue/Player1"]
+scale = Vector2( 1.64951, 1.64951 )
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="TurnQueue/Player1/CollisionShape2D"]
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 11 )
+
+[node name="Player2" type="KinematicBody2D" parent="TurnQueue"]
+position = Vector2( 984, 980 )
+script = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TurnQueue/Player2"]
+scale = Vector2( 1.64951, 1.64951 )
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="TurnQueue/Player2/CollisionShape2D"]
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 11 )
+
+[node name="UI" type="Control" parent="."]
+margin_left = 1080.0
+margin_right = 1920.0
+margin_bottom = 1080.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ColorRect" type="ColorRect" parent="UI"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.164706, 0.188235, 0.207843, 1 )
+
+[node name="PlayerInfos" type="MarginContainer" parent="UI"]
+margin_right = 840.0
+margin_bottom = 391.0
+custom_constants/margin_right = 20
+custom_constants/margin_top = 20
+custom_constants/margin_left = 20
+custom_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/PlayerInfos"]
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 820.0
+margin_bottom = 371.0
+custom_constants/separation = 20
+script = ExtResource( 60 )
+
+[node name="Control" parent="UI/PlayerInfos/VBoxContainer" instance=ExtResource( 6 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 800.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 800, 60 )
+script = ExtResource( 9 )
+
+[node name="Control2" parent="UI/PlayerInfos/VBoxContainer" instance=ExtResource( 6 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 80.0
+margin_right = 800.0
+margin_bottom = 140.0
+rect_min_size = Vector2( 800, 60 )
+script = ExtResource( 9 )
+
+[node name="Interaction" type="Control" parent="UI"]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = 20.0
+margin_top = -200.0
+margin_right = -20.0
+margin_bottom = 190.0
+script = ExtResource( 58 )
+
+[node name="ColorRect" type="ColorRect" parent="UI/Interaction"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = -20.0
+color = Color( 0.239216, 0.270588, 0.301961, 1 )
+
+[node name="Label" type="RichTextLabel" parent="UI/Interaction"]
+anchor_right = 1.0
+margin_left = 20.0
+margin_top = 20.0
+margin_right = -20.0
+margin_bottom = 180.0
+custom_fonts/normal_font = SubResource( 5 )
+
+[node name="okButton" type="TextureButton" parent="UI/Interaction"]
+visible = false
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -91.0
+margin_top = -130.0
+margin_right = 209.0
+margin_bottom = 20.0
+rect_scale = Vector2( 0.603938, 0.603938 )
+disabled = true
+texture_normal = ExtResource( 57 )
+texture_pressed = ExtResource( 56 )
+
+[node name="yesButton" type="TextureButton" parent="UI/Interaction"]
+visible = false
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 150.0
+margin_top = -150.0
+margin_right = 250.0
+margin_bottom = -50.0
+disabled = true
+texture_normal = ExtResource( 52 )
+texture_pressed = ExtResource( 53 )
+
+[node name="noButton" type="TextureButton" parent="UI/Interaction"]
+visible = false
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -250.0
+margin_top = -150.0
+margin_right = -150.0
+margin_bottom = -50.0
+disabled = true
+texture_normal = ExtResource( 54 )
+texture_pressed = ExtResource( 55 )
+
+[node name="OutputLine" type="Control" parent="UI"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 20.0
+margin_top = -350.0
+margin_right = -20.0
+margin_bottom = -20.0
+script = ExtResource( 59 )
+
+[node name="ColorRect" type="ColorRect" parent="UI/OutputLine"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.239216, 0.270588, 0.301961, 1 )
+
+[node name="List" type="ItemList" parent="UI/OutputLine"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 20.0
+margin_top = 20.0
+margin_right = -20.0
+margin_bottom = -20.0
+custom_fonts/font = SubResource( 6 )
+max_text_lines = 2
+fixed_column_width = 745
+icon_mode = 0
+icon_scale = 0.0
+
+[connection signal="pressed" from="UI/Interaction/okButton" to="UI/Interaction" method="_on_TextureButton_pressed"]
+[connection signal="pressed" from="UI/Interaction/yesButton" to="UI/Interaction" method="_on_yesButton_pressed"]
+[connection signal="pressed" from="UI/Interaction/noButton" to="UI/Interaction" method="_on_noButton_pressed"]
